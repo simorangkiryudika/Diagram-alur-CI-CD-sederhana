@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CI/CD Pipeline</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #eaf2ff;
-            padding: 70px 20px;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 4px 15px #ccc;
-        }
-        h1 { color: #1769aa; }
-        .success {
-            color: green;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>CI/CD Pipeline Berhasil!</h1>
-        <p>Selamat datang di aplikasi Cloud DevOps.</p>
-        <p class="success">
-            Build ✓ Test ✓ Deploy ✓
-        </p>
-        <p>Aplikasi berhasil dijalankan melalui GitHub Actions.</p>
-    </div>
-</body>
-</html>
+
+# DIAGRAM ALUR CI/CD SEDERHANA
+
+## Pipeline CI/CD menggunakan GitHub Actions
+
+```mermaid
+flowchart TD
+    A["Developer"] --> B["GitHub Repository"]
+    B --> C["GitHub Actions"]
+    C --> D["Build Aplikasi"]
+    D --> E["Test Aplikasi"]
+    E --> F{"Test Berhasil?"}
+    F -->|Ya| G["Deploy Aplikasi"]
+    F -->|Tidak| H["Perbaikan Kode"]
+    H --> B
+    G --> I["Production"]
+    I --> J["Aplikasi Berjalan"]
+
+    style A fill:#dbeafe,stroke:#2563eb
+    style B fill:#f3e8ff,stroke:#9333ea
+    style C fill:#dbeafe,stroke:#2563eb
+    style D fill:#dcfce7,stroke:#16a34a
+    style E fill:#dcfce7,stroke:#16a34a
+    style G fill:#dcfce7,stroke:#16a34a
+    style I fill:#bbf7d0,stroke:#16a34a
+```
+
+## Penjelasan
+
+1. Developer membuat kode program.
+2. Kode dikirim ke GitHub.
+3. GitHub Actions menjalankan pipeline.
+4. Build digunakan untuk membangun aplikasi.
+5. Test digunakan untuk menguji aplikasi.
+6. Deploy mengirim aplikasi ke server.
+7. Aplikasi siap digunakan.
